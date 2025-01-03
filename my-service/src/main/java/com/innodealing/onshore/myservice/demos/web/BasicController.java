@@ -33,7 +33,7 @@ public class BasicController {
     @ResponseBody
     public String hello(@RequestParam(name = "name", defaultValue = "unknown user") String name) {
         String result = "Hello " + name;
-        return result;
+        return "result:" + result;
     }
 
     // http://127.0.0.1:8080/user
@@ -55,7 +55,7 @@ public class BasicController {
 
     // http://127.0.0.1:8080/html
     @RequestMapping("/html")
-    public String html(){
+    public String html() {
         return "index.html";
     }
 

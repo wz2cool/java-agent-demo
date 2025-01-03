@@ -21,7 +21,7 @@ public class MethodReturnMethodVisitor extends MethodVisitor {
         if (opcode >= Opcodes.IRETURN && opcode <= Opcodes.RETURN) {
             // 在方法返回前插入代码，例如打印返回值
             mv.visitCode();
-            mv.visitInsn(Opcodes.DUP); // 假设返回值在局部变量表的第1位
+            mv.visitVarInsn(Opcodes.ALOAD, 1);// 假设返回值在局部变量表的第1位
             mv.visitMethodInsn(Opcodes.INVOKESTATIC, "com/innodealing/onshore/Logger", "logReturn", "(Ljava/lang/Object;)V", false);
         }
         super.visitInsn(opcode);
